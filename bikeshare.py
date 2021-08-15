@@ -230,6 +230,10 @@ def main():
 
         # Ask user if they would like to see raw data
         view_data = input('\nWould you like to view the first 5 lines of raw data? Enter yes or no.\n').lower()
+
+        # Set option for viewing all columns of raw data
+        pd.set_option('display.max_columns',200)
+
         if view_data == 'yes':
             # Initialize 'x' variable to 0
             x = 0
