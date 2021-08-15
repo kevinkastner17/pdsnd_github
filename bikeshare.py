@@ -7,6 +7,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+# Establish list of months from January to June
 months = ['january', 'february', 'march', 'april', 'may', 'june']
 
 def get_filters():
