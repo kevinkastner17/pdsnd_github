@@ -7,7 +7,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
-months = ['january', 'february', 'march', 'april', 'may', 'june']
+MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 
 def get_filters():
     """
@@ -37,14 +37,14 @@ def get_filters():
     # Initialize 'month' variable
     month = ' '
     # Continue asking for inputs until user selects valid option
-    while month not in months and month != 'all':
+    while month not in MONTHS and month != 'all':
         try:
             month = input("Enter a specific month between to filter on between January through June, or enter 'all' for all months:").lower()
         # Handle ValueErrors and give user another attempt to enter valid option
         except ValueError:
             print('Please try again with a valid month option.')
         # Prompt user for a valid input if one is not chosen
-        if month not in months and month != 'all':
+        if month not in MONTHS and month != 'all':
             print('Please try again with a valid month option.')
 
     # Initialize 'day' variable
@@ -93,7 +93,7 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
-        month = months.index(month) + 1
+        month = MONTHS.index(month) + 1
 
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
@@ -114,7 +114,7 @@ def time_stats(df):
 
     # Display the most common month
     month_mode = df['month'].mode()[0]
-    month_mode = months[month_mode - 1].title()
+    month_mode = MONTHS[month_mode - 1].title()
     print('Most common month of travel is: {}'.format(month_mode))
 
     # Display the most common day of week
